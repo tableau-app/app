@@ -17,5 +17,6 @@
     "copy": "rm -rf ../server/public && cp -R ./build ../server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3001/"
 }
