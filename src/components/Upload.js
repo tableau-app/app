@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import Login from './components/Login';
 
-class App extends Component {
+class Upload extends Component {
   constructor(props) {
     super(props);
 
@@ -50,26 +48,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to Tableau</h2>
-          <div>
-          </div>
-        </div>
-        <div>
-          <Login />
-        </div>
-            {/*<p id="status">Please select a file</p>*/}
-          {/*<form onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit(e.target['file-input'].files[0]);
-            }}>
-              <input type="file" id="file-input" />
-              <input type="submit"/>
-            </form>*/}
-      </div>
+      <div >
+        <p id="status">Please select a file</p>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          this.handleSubmit(e.target['file-input'].files[0]);
+        }}>
+          <input type="file" id="file-input" />
+          <input type="submit" />
+        </form>
+      </div >
     );
   }
 }
 
-export default App;
+export default Upload;
