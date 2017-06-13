@@ -7,7 +7,7 @@ function Auth({ user, error, signin, signup }) {
 
   return (
     <div>
-      {/*<p>Not registered?, Sign up</p>*/}
+      <p>Not registered?, Sign up</p>
       <form onSubmit={e => {
         e.preventDefault();
         const { elements } = e.target;
