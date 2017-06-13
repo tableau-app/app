@@ -1,32 +1,36 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
+import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
-function Auth({ user, error, signin, signup }) {
+function Auth({ user, signin, signup, location }) {
+  const redirect = location.state ? location.state.from : '/';
 
+  if(user) return <Redirect to={redirect}/>;
+  
   return (
     <div>
-      <p>Not registered?, Sign up</p>
-      <form onSubmit={e => {
-        e.preventDefault();
-        const { elements } = e.target;
-        const data = Object.keys(elements).reduce((obj, key) => {
-          obj[key] = elements[key].value;
-          return obj;
-        }, {});
-        signup(data);
-        e.target.reset();
-      }}>
-        <label>Username:<input name="username" /></label>
-        <label>Password:<input name="password" /></label>
-        <button type="submit">Signup</button>
-      </form>
+        <Switch>
+          <Route path="/auth/signin" component={() => (
+            <div>
+              <p>Not yet registered? <Link to="/auth/signup">Sign Up</Link></p>
+              <Credentials submit={signin}/>
+            </div>
+          )}/>
+          <Route path="/auth/signup" render={() => (
+            <div>
+              <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+              <Credentials submit={signup} allowName={true}/>
+            </div>
+          )}/>
+        </Switch>
+        {/*{error && <Error>{ error }</Error>}*/}
     </div>
   );
 }
 
-export default connect(
+export default withRouter(connect(
   state => ({
     error: state.authError,
     user: state.user
@@ -35,4 +39,4 @@ export default connect(
     signup(user) { dispatch(signup(user)); },
     signin(credentials) { dispatch(signin(credentials)); }
   })
-)(Auth);
+)(Auth));
