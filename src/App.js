@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Auth from './components/Auth';
+import OAuth from './components/OAuth';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
         </div>
         <div>
           <Auth />
+          <OAuth/>
         </div>
       </div>
     );
