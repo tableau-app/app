@@ -18,8 +18,8 @@ function Auth({ user, error, signin, signup }) {
         signup(data);
         e.target.reset();
       }}>
-        <label>Username:<input type="text" /></label>
-        <label>Password:<input type="text" /></label>
+        <label>Username:<input name="username" /></label>
+        <label>Password:<input name="password" /></label>
         <button type="submit">Signup</button>
       </form>
     </div>
