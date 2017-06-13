@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Login from './components/Login';
 
 class App extends Component {
   constructor(props) {
@@ -12,12 +13,12 @@ class App extends Component {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
     xhr.onreadystatechange = () => {
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
           this.uploadFile(file, response.signedRequest, response.url);
         }
-        else{
+        else {
           alert('Could not get signed URL.');
         }
       }
@@ -25,15 +26,15 @@ class App extends Component {
     xhr.send();
   }
 
-  uploadFile(file, signedRequest, url){
+  uploadFile(file, signedRequest, url) {
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
     xhr.onreadystatechange = () => {
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
           console.log('check the bucket!');
         }
-        else{
+        else {
           alert('Could not upload file.');
         }
       }
@@ -42,7 +43,7 @@ class App extends Component {
   }
 
   handleSubmit(file) {
-    if(file == null) alert('No file selected.');
+    if (file == null) alert('No file selected.');
 
     this.getSignedRequest(file);
   }
@@ -53,17 +54,19 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to Tableau</h2>
           <div>
-            <p id="status">Please select a file</p>
-
-            <form onSubmit={(e) => {
+          </div>
+        </div>
+        <div>
+          <Login />
+        </div>
+            {/*<p id="status">Please select a file</p>*/}
+          {/*<form onSubmit={(e) => {
               e.preventDefault();
               this.handleSubmit(e.target['file-input'].files[0]);
             }}>
               <input type="file" id="file-input" />
               <input type="submit"/>
-            </form>
-          </div>
-        </div>
+            </form>*/}
       </div>
     );
   }
