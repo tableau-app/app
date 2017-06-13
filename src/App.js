@@ -8,6 +8,7 @@ import {
 import './App.css';
 import Auth from './components/Auth';
 import Feed from './components/Feed';
+import OAuth from './components/OAuth';
 
 const Routes = (
   <Switch> 
@@ -33,6 +34,7 @@ class App extends Component {
           <main>
             {Routes}
           </main>
+          <OAuth/>
         </div>
       </Router>
     );
