@@ -5,20 +5,21 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import Headroom from 'react-headroom';
 import './App.css';
 import Auth from './components/Auth';
 import Feed from './components/Feed';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
-import { GetStarted } from './components/GetStarted';
+import { Login } from './components/Login';
 
 const Routes = (
-  <Switch> 
-    <Route exact path="/feed" render={() => <Feed/>}/>
-    <Route exact path="/" render={() => <GetStarted/>}/>
-    <Route path="/auth" render={() => <Auth />}/>
-    <Redirect to="/"/>
-  </Switch>  
+  <Switch>
+    <Route exact path="/feed" render={() => <Feed />} />
+    <Route exact path="/" render={() => <Login />} />
+    {/*<Route path="/auth" render={() => <Auth />}/>*/}
+    <Redirect to="/" />
+  </Switch>
 );
 
 class App extends Component {
@@ -31,11 +32,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div className="App">
+          <Headroom style={{ backgroundColor: 'blue'}}>
             <div className="App-header">
               <h2>Welcome to Tableau</h2>
             </div>
-          </div>
+          </Headroom>
           <main>
             {Routes}
           </main>
@@ -46,8 +47,8 @@ class App extends Component {
 }
 
 export default connect(
-  state=> ({ user: state.user }),
+  state => ({ user: state.user }),
   dispatch => ({
-    checkForToken() { dispatch(checkForToken());}
+    checkForToken() { dispatch(checkForToken()); }
   })
 )(App);
