@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './Header';
 import GalleryCard from './GalleryCard';
+import ThumbnailCard from './ThumbnailCard';
 
 const WelcomeGreeting = ({ name }) => (
   <p>Welcome {name}! <Link to="/feed">View your feed</Link></p>
@@ -14,7 +15,7 @@ function Feed({ user }) {
     <Header/>
       <h1>Welcome to Tableau</h1>
       { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
-      <GalleryCard user={user} />
+      <ThumbnailCard user={user} />
     </div>
   );
 }

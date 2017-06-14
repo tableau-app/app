@@ -5,7 +5,7 @@ import TiMessage from 'react-icons/lib/ti/message';
 import FaEllipsisH from 'react-icons/lib/fa/ellipsis-h';
 
 const Div = styled.div`
-  width: 600px;
+  width: 300px;
   margin: 0 auto;
   border: 1px solid #222;
   border-radius: 5px;
@@ -13,7 +13,7 @@ const Div = styled.div`
 `;
 
 const Header = styled.header`
-  height: 80px;
+  height: 50px;
   display: flex;
   align-items: center;
   position: relative;
@@ -22,13 +22,13 @@ const Header = styled.header`
 const Avatar = styled.img`
   border-radius: 100%;
   border: 1px solid #222;
-  width: 50px;
+  width: 40px;
   margin-left: 1em;
 `;
 
 const Username = styled.span`
   font-weight: bold;
-  margin-left: 1em;
+  margin-left: 1.5em;
   margin-right: 5em;
 `;
 
@@ -38,33 +38,33 @@ const ImgWrapper = styled.div`
 
 const Img = styled.img`
   width: 100%;
-  max-height: 700px;
+  max-height: 350px;
 `;
 
 const HeartIcon = styled(MdFavoriteOutline)`
-  font-size: 2em;
-  margin-left: .5em;
+  font-size: 1.5em;
+  margin-left: .2em;
 `;
 
 const ChatIcon = styled(TiMessage)`
-  font-size: 2em;
-  margin-left: .5em;
+  font-size: 1.5em;
+  margin-left: .2em;
 `;
 
 const EllipsisIcon = styled.a`
-  font-size: 2em;
+  font-size: 1.5em;
   position: absolute;
-  right: 1em;
+  right: 0.25em;
   text-decoration: none;
     :visited: #222;
-  padding: 5px;
+  padding: 3px;
 `;
 
 const Footer = styled.footer`
   padding: .5em;
 `;
 
-export default function GalleryCard({ user }) {
+export default function ThumbnailCard({ user }) {
   return (
     <Div>
       <Header>
