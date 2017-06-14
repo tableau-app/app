@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
   height: 2000px;
 }
 
@@ -9,6 +12,4 @@ a:visited {
   color: #222;
 }
 
-/*.App {
-  text-align: center;
-}*/
+
