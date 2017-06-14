@@ -9,6 +9,7 @@ class Upload extends Component {
 
   getSignedRequest(file) {
     const xhr = new XMLHttpRequest();
+    // file.name = shortId.generate();
     xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
@@ -30,7 +31,7 @@ class Upload extends Component {
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          console.log('check the bucket!');
+          // fetch()
         }
         else {
           alert('Could not upload file.');
