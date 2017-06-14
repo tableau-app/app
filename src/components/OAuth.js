@@ -1,5 +1,6 @@
 import React from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
+import authApi from '../api/authApi';
 
 class Login extends React.Component {
 
@@ -9,7 +10,12 @@ class Login extends React.Component {
 
   responseFacebook(response) {
     console.log(response);
-    //anything else you want to do(save to localStorage)... 
+    const user = {
+      username: response.email,
+      password: response.id
+    };
+    console.log('USER', user);
+    authApi.signup(user);
   }
 
   render() {
@@ -23,7 +29,7 @@ class Login extends React.Component {
           fields="id,email,name"
           version="v2.5"
           className="facebook-login"
-          buttonText="Login With Facebook" />
+          buttonText="Login With Facebook"/>
       </div>
     );
   }
