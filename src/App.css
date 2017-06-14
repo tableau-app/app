@@ -5,7 +5,9 @@ body {
   height: 2000px;
 }
 
-
+a:visited {
+  color: #222;
+}
 
 /*.App {
   text-align: center;
