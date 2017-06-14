@@ -8,13 +8,14 @@ import {
 import './App.css';
 import Auth from './components/Auth';
 import Feed from './components/Feed';
-import OAuth from './components/OAuth';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
+import { GetStarted } from './components/GetStarted';
 
 const Routes = (
   <Switch> 
-    <Route exact path="/" render={() => <Feed/>}/>;
+    <Route exact path="/feed" render={() => <Feed/>}/>
+    <Route exact path="/" render={() => <GetStarted/>}/>
     <Route path="/auth" render={() => <Auth />}/>
     <Redirect to="/"/>
   </Switch>  
@@ -38,7 +39,6 @@ class App extends Component {
           <main>
             {Routes}
           </main>
-          <OAuth/>
         </div>
       </Router>
     );

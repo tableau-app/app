@@ -5,7 +5,7 @@ import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
 function Auth({ user, signin, signup, location }) {
-  const redirect = location.state ? location.state.from : '/';
+  const redirect = '/feed';
 
   if(user) return <Redirect to={redirect}/>;
   
