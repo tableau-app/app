@@ -1,9 +1,8 @@
 import React from 'react';
 
-export default function Credentials({ submit }) {
+export default function Credentials({ submit, callToAction }) {
   return (
     <div>
-      <p>Not registered?, Sign up</p>
       <form onSubmit={e => {
         e.preventDefault();
         const { elements } = e.target;
@@ -17,7 +16,7 @@ export default function Credentials({ submit }) {
       }}>
         <label>Username:<input name="username" /></label>
         <label>Password:<input name="password" /></label>
-        <button type="submit">Signup</button>
+        <button type="submit">{callToAction}</button>
       </form>
     </div>
   );
