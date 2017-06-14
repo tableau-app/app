@@ -1,33 +1,47 @@
-import React from 'react';
-import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
-function Auth({ user, signin, signup, location }) {
-  const redirect = '/feed';
+const Error = styled.pre`
+  color: red;
+`;
 
-  if(user) return <Redirect to={redirect}/>;
-  
-  return (
-    <div>
-        <Switch>
-          <Route path="/auth/signin" component={() => (
-            <div>
-              <p>Not yet registered? <Link to="/auth/signup">Sign Up</Link></p>
-              <Credentials submit={signin}/>
-            </div>
-          )}/>
-          <Route path="/auth/signup" render={() => (
-            <div>
-              <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
-              <Credentials submit={signup} allowName={true}/>
-            </div>
-          )}/>
-        </Switch>
-        {/*{error && <Error>{ error }</Error>}*/}
-    </div>
-  );
+class Auth extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      signupForm: true
+    };
+
+  }
+  render() {
+    const { user, signin, signup } = this.props;
+
+    if (user) return <Redirect to='/feed' />;
+
+    return (
+      <div>
+        {this.state.signupForm
+          ?
+          <div>
+            <button onClick={() => this.setState({ signupForm: false })}>
+              Sign In</button>
+            <Credentials callToAction="Sign up" submit={signup} />
+          </div>
+          :
+          <div>
+            <p>Not yet registered<button onClick={() => this.setState({ signupForm: true })}>
+            Sign Up</button></p>
+            <Credentials callToAction="Sign in" submit={signin} />
+          </div>
+        }
+      </div>
+    );
+  }
 }
 
 export default withRouter(connect(

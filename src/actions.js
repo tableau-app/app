@@ -5,7 +5,7 @@ import { getStoredToken } from './api/request';
 export function checkForToken() {
   return dispatch => {
     const token = getStoredToken();
-    if(!token) return;
+    if (!token) return;
 
     dispatch({ type: constants.GOT_TOKEN, payload: token });
 
