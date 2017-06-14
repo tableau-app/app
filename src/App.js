@@ -9,18 +9,22 @@ import './App.css';
 import Auth from './components/Auth';
 import Feed from './components/Feed';
 import OAuth from './components/OAuth';
+import { connect } from 'react-redux';
+import { checkForToken } from './actions';
 
 const Routes = (
   <Switch> 
     <Route exact path="/" render={() => <Feed/>}/>;
     <Route path="/auth" render={() => <Auth />}/>
-    {/*<PrivateRoute exact path="/albums" render={() => <Albums/>}/>;
-    <PrivateRoute path="/albums/:id" render={({ match }) => <AlbumDetail id={match.params.id}/>}/>;*/}
     <Redirect to="/"/>
   </Switch>  
 );
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.checkForToken();
+  }
 
   render() {
     return (
@@ -41,4 +45,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state=> ({ user: state.user }),
+  dispatch => ({
+    checkForToken() { dispatch(checkForToken());}
+  })
+)(App);
