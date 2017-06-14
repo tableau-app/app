@@ -1,20 +1,16 @@
 import React from 'react';
 import { FacebookLogin } from 'react-facebook-login-component';
 import authApi from '../api/authApi';
+import { signup, signin } from '../actions';
+import { connect } from 'react-redux';
 
-class Login extends React.Component {
-
-  constructor(props, context) {
-    super(props, context);
-  }
+class OAuth extends React.Component {
 
   responseFacebook(response) {
-    console.log(response);
     const user = {
       username: response.email,
       password: response.id
     };
-    console.log('USER', user);
     authApi.signup(user);
   }
 
@@ -36,4 +32,13 @@ class Login extends React.Component {
 
 }
 
-export default Login;
+export default connect(
+  state => ({
+    error: state.authError,
+    user: state.user
+  }),
+  dispatch => ({
+    signup(user) { dispatch(signup(user)); },
+    signin(credentials) { dispatch(signin(credentials)); }
+  })
+)(OAuth);

@@ -18,7 +18,7 @@ const WelcomeGreeting = ({ name }) => (
 function Feed({ user }) {
   return (
     <div>
-      <h1>Welcome to Image Gallery+</h1>
+      <h1>Welcome to Tableau</h1>
       { user ? <WelcomeGreeting name={user.name}/> : <GetStarted/> }
     </div>
   );
