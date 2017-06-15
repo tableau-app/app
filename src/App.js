@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
+import { BrowserRouter as Router,
+         Route,
+         Switch,
+         Redirect
 } from 'react-router-dom';
 import './App.css';
 import Feed from './components/Feed';
@@ -11,8 +10,6 @@ import { connect } from 'react-redux';
 import { checkForToken } from './actions';
 import { Login } from './components/Login';
 import styled from 'styled-components';
-import Nav from './components/Nav';
-
 
 const Footer = styled.footer`
   text-align: center;
@@ -30,7 +27,6 @@ const Routes = (
 );
 
 class App extends Component {
-
   componentDidMount() {
     this.props.checkForToken();
   }
