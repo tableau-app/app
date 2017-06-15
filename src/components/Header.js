@@ -5,7 +5,8 @@ import { signout } from '../actions';
 
 function Header({ user, signout }) {
   return (
-
+    //  user ? <button onClick={signout}>Logout</button> : ''
+    //TODO ^
     <button onClick={signout}>Logout</button>
   );
 }

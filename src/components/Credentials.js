@@ -1,4 +1,27 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Label = styled.label`
+  display: block;
+  margin: 1em auto .25em auto;
+  width: 75%;
+`;
+
+const Input = styled.input`
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+  font-size: 1em;
+`;
+
+const Button = styled.button`
+  display: block;
+  width: 75%;
+  margin: 1em auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 1em;
+`;
 
 export default function Credentials({ submit, callToAction }) {
   return (
@@ -14,9 +37,11 @@ export default function Credentials({ submit, callToAction }) {
         submit(data);
         e.target.reset();
       }}>
-        <label>Username:<input name="username" /></label>
-        <label>Password:<input name="password" /></label>
-        <button type="submit">{callToAction}</button>
+        <Label>Username</Label>
+        <Input type="text" name="username" />
+        <Label>Password</Label>
+        <Input type="password" name="password" />
+        <Button type="submit">{callToAction}</Button>
       </form>
     </div>
   );

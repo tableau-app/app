@@ -11,6 +11,22 @@ import Feed from './components/Feed';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
 import { Login } from './components/Login';
+import styled from 'styled-components';
+import Header from './components/Header';
+
+
+const Footer = styled.footer`
+  text-align: center;
+  color: lightgrey;
+  margin: 3em 0;
+`;
+
+const Div = styled.div`
+  background: lightgrey;
+  padding: 1em;
+  font-size: 1.25em;
+  font-weight: bold;
+`;
 
 const Routes = (
   <Switch>
@@ -31,14 +47,18 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Headroom style={{ backgroundColor: 'lightgrey'}}>
-            <div className="App-header">
+          <Headroom>
+            <Div className="App-header">
               <h2>Tableau</h2>
-            </div>
+              <Header/>
+            </Div>
           </Headroom>
           <main>
             {Routes}
           </main>
+          <Footer>
+            © Tableau 2017
+          </Footer>
         </div>
       </Router>
     );
