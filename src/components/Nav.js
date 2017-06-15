@@ -6,7 +6,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Upload from './Upload';
 
-
+const H2 = styled.h2`
+  font-size: 2em;
+`;
 
 const Div = styled.div`
   background: lightgrey;
@@ -28,9 +30,11 @@ function Nav({user}) {
   return (
     <Headroom>
       <Div className="App-header">
-        <h2>Tableau</h2>
-        <Span><Logout /></Span>
+        <H2>Tableau</H2>
+        <Span>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
+        <Logout />
+        </Span>
         <Upload user={user}/>
       </Div>
     </Headroom>
