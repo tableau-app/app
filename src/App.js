@@ -11,10 +11,11 @@ import { checkForToken } from './actions';
 import { Login } from './components/Login';
 import styled from 'styled-components';
 
-const Footer = styled.footer`
+const Footer = styled.div`
   text-align: center;
   color: lightgrey;
-  margin: 3em 0;
+  padding: 4em 0;
+  clear: both;
 `;
 
 const Routes = (
