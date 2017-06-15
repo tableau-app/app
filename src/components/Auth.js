@@ -14,6 +14,14 @@ const P = styled.p`
   margin: .5em 0;
 `;
 
+const H1 = styled.h1`
+  width: 75%;
+  margin: 0 auto;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+`;
+
 const Hr = styled.hr`
   margin: 1.5em auto;
   border: 1px solid lightgrey;
@@ -39,6 +47,7 @@ class Auth extends Component {
 
     return (
       <div>
+        <H1>Tableau</H1>
         {this.state.signupForm
           ?
           <div>
