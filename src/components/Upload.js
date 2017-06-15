@@ -43,7 +43,7 @@ class Upload extends Component {
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
-          request.post('/me/posts', data)
+          request.post('/posts', data)
             .then(() => this.setState({ submitted: true }));
         } else {
           alert('Could not upload file.');
