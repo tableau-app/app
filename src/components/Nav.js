@@ -1,9 +1,9 @@
 import React from 'react';
-import Logout from './Logout';
-import styled from 'styled-components';
-import Headroom from 'react-headroom';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Headroom from 'react-headroom';
+import styled from 'styled-components';
+import Logout from './Logout';
 import Upload from './Upload';
 
 const H2 = styled.h2`
@@ -25,8 +25,7 @@ const WelcomeGreeting = ({ name }) => (
   <p> {name} <Link to="/feed"></Link></p>
 );
 
-function Nav({user}) {
-
+function Nav({ user }) {
   return (
     <Headroom>
       <Div className="App-header">
