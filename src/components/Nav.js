@@ -31,7 +31,7 @@ function Nav({user}) {
         <h2>Tableau</h2>
         <Span><Logout /></Span>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
-        <Upload />
+        <Upload user={user}/>
       </Div>
     </Headroom>
   );

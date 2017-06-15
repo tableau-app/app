@@ -70,7 +70,6 @@ const Footer = styled.footer`
 
 
 function handleLike(postId, user) {
-  console.log(postId);
   return request.post(`/posts/${postId}/likes`, user);
 }
 
@@ -99,7 +98,7 @@ export default function GalleryCard({ user, post }) {
       </ImgWrapper>
 
       <Footer>
-        <HeartIcon onClick={(post, user) => handleLike(post._id, user)} /> <ChatIcon />
+        <HeartIcon onClick={() => handleLike(post._id, user)} /> <ChatIcon />
       </Footer>
     </Div>
   );
