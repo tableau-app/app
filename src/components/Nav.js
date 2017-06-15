@@ -6,8 +6,10 @@ import styled from 'styled-components';
 import Logout from './Logout';
 import Upload from './Upload';
 
-const H2 = styled.h2`
+const Title = styled.div`
   font-size: 2em;
+  float: left;
+  margin: .5em 0 1em .5em;
 `;
 
 const Div = styled.div`
@@ -15,10 +17,11 @@ const Div = styled.div`
   padding: 1em;
   font-size: 1.25em;
   font-weight: bold;
+  clear: both;
 `;
 
 const SignoutWrapper = styled.div`
-  float: right;
+  text-align: right;
 `;
 
 const WelcomeGreeting = ({ name }) => (
@@ -29,12 +32,14 @@ function Nav({ user }) {
   return (
     <Headroom>
       <Div>
-        <H2>tableau</H2>
+        <Title>
+        <h2>tableau</h2>
+        </Title>
         <SignoutWrapper>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
         <Logout />
-        </SignoutWrapper>
         <Upload user={user}/>
+        </SignoutWrapper>
       </Div>
     </Headroom>
   );
