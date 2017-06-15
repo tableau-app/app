@@ -68,11 +68,6 @@ const Footer = styled.footer`
   padding: .5em;
 `;
 
-
-function handleLike(postId, user) {
-  return request.post(`/posts/${postId}/likes`, user);
-}
-
 function generateRandomUserAvatar() {
   return Math.floor(Math.random() * 99);
 }
@@ -82,7 +77,7 @@ function generateRandomPerson() {
   return coin ? 'women' : 'men';
 }
 
-export default function GalleryCard({ user, post }) {
+export default function GalleryCard({ user, post, onLike }) {
   return (
     <Div>
       <Header>
@@ -98,7 +93,9 @@ export default function GalleryCard({ user, post }) {
       </ImgWrapper>
 
       <Footer>
-        <HeartIcon onClick={() => handleLike(post._id, user)} /> <ChatIcon />
+        <HeartIcon onClick={onLike} /> 
+        {post.likes.length && <span>{post.likes.length}</span>}
+        <ChatIcon />
       </Footer>
     </Div>
   );

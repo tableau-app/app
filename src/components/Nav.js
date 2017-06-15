@@ -23,7 +23,7 @@ const WelcomeGreeting = ({ name }) => (
   <p> {name} <Link to="/feed"></Link></p>
 );
 
-function Nav({user}) {
+function Nav({user, posts}) {
 
   return (
     <Headroom>
