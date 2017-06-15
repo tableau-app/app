@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Logout from './Logout';
 import styled from 'styled-components';
 import Headroom from 'react-headroom';
 
@@ -16,7 +16,7 @@ function Nav (props) {
     <Headroom>
       <Div className="App-header">
         <h2>Tableau</h2>
-        <Header />
+        <Logout />
       </Div>
     </Headroom>
   );

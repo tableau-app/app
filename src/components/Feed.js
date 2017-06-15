@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import Header from './Header';
+// import Nav from './Nav';
 import GalleryCard from './GalleryCard';
 import ThumbnailCard from './ThumbnailCard';
 import Upload from './Upload';
@@ -13,7 +13,7 @@ const WelcomeGreeting = ({ name }) => (
 function Feed({ user }) {
   return (
     <div>
-    {/*<Header/>*/}
+    {/*<Nav/>*/}
       { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
       <ThumbnailCard user={user} />
       <GalleryCard user={user} />
