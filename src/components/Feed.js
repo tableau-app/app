@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { request } from '../api/request';
 import GalleryCard from './GalleryCard';
-import ThumbnailCard from './ThumbnailCard';
 import Nav from './Nav';
 
 class Feed extends Component {
