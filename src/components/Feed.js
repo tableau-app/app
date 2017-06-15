@@ -1,29 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import Header from './Header';
+import { request } from '../api/request';
 import GalleryCard from './GalleryCard';
 import ThumbnailCard from './ThumbnailCard';
-import Upload from './Upload';
 
-const WelcomeGreeting = ({ name }) => (
-  <p>Welcome {name}! <Link to="/feed"></Link></p>
-);
+class Feed extends Component {
+  constructor(props) {
+    super(props);
 
-function Feed({ user }) {
-  return (
-    <div>
-    {/*<Header/>*/}
-      { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
-      <ThumbnailCard user={user} />
-      <GalleryCard user={user} />
-      <Upload user={user} />
-    </div>
-  );
+    this.state = {
+      posts: []
+    };
+  }
+
+  componentDidMount() {
+    request.get('/posts')
+      .then(posts => this.setState({ posts }));
+  }
+
+  render() {
+    const { user } = this.props;
+    const { posts } = this.state;
+    return (
+      <div>
+        {posts.map(post => (
+          <GalleryCard key={post._id} user={user} post={post} />
+        ))}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({ user: state.user });
 
 export default connect(
-  mapStateToProps  
+  mapStateToProps
 )(Feed);
