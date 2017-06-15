@@ -1,5 +1,4 @@
 import React from 'react';
-import OAuth from './OAuth';
 import Auth from './Auth';
 import styled from 'styled-components';
 
@@ -15,11 +14,6 @@ const Div = styled.div`
 
 export const Login = () => (
   <Div>
-    <div>
-      <OAuth/>
-    </div>
-    <div>
       <Auth/>
-    </div>
   </Div>
 );
