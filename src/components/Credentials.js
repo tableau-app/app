@@ -14,8 +14,8 @@ export default function Credentials({ submit, callToAction }) {
         submit(data);
         e.target.reset();
       }}>
-        <label>Username:<input name="username" /></label>
-        <label>Password:<input name="password" /></label>
+        <label>Username:<input type="text" name="username" /></label>
+        <label>Password:<input type="password" name="password" /></label>
         <button type="submit">{callToAction}</button>
       </form>
     </div>
