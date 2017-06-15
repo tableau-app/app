@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Credentials from './Credentials';

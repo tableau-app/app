@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import './App.css';
-import Auth from './components/Auth';
 import Feed from './components/Feed';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
