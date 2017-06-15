@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { request } from '../api/request';
+import styled from 'styled-components';
+
+
+const P = styled.p`
+  font-size: .75em;
+`;
 
 class Upload extends Component {
   constructor(props) {
@@ -65,7 +71,7 @@ class Upload extends Component {
 
     return (
       <div >
-        <p id="status">Please select a file</p>
+        <P id="status">Add an image</P>
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleSubmit(e.target['file-input'].files[0]);
