@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Headroom from 'react-headroom';
 import styled from 'styled-components';
 import Logout from './Logout';
-import Upload from './Upload';
 
 const Title = styled.div`
   font-size: 2em;
@@ -36,9 +35,9 @@ function Nav({ user }) {
         <h2>tableau</h2>
         </Title>
         <SignoutWrapper>
-        {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
-        <Logout />
-        <Upload user={user}/>
+          {user ? <WelcomeGreeting name={user.username} /> :  <Redirect to="/" />}
+          <Logout />
+          <Link to="/AddPic">Add an Image</Link>
         </SignoutWrapper>
       </Div>
     </Headroom>

@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { checkForToken } from './actions';
 import { Login } from './components/Login';
 import styled from 'styled-components';
+import AddPic from './components/AddPic';
 
 const Footer = styled.div`
   text-align: center;
@@ -23,6 +24,7 @@ const Routes = (
     <Route exact path="/feed" render={() => <Feed />} />
     <Route exact path="/" render={() => <Login />} />
     {/*<Route path="/auth" render={() => <Auth />}/>*/}
+    <Route path="/AddPic" render={() => <AddPic />} />
     <Redirect to="/" />
   </Switch>
 );

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { request } from '../api/request';
 import GalleryCard from './GalleryCard';
 import Nav from './Nav';
+import { Route } from 'react-router-dom';
+import AddPic from './AddPic';
 
 class Feed extends Component {
   constructor(props) {
