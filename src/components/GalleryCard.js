@@ -5,10 +5,11 @@ import TiMessage from 'react-icons/lib/ti/message';
 
 const Div = styled.div`
   width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   border: 1px solid #222;
   border-radius: 5px;
   background-color: #eee;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 `;
 
 const Header = styled.header`
@@ -63,19 +64,28 @@ const Footer = styled.footer`
   padding: .5em;
 `;
 
-export default function GalleryCard({ user }) {
+function generateRandomUserAvatar() {
+  return Math.floor(Math.random() * 99);
+}
+
+function generateRandomPerson() {
+  let coin = Math.floor(Math.random() * 2);
+  return coin ? 'women' : 'men';
+}
+
+export default function GalleryCard({ user, post }) {
   return (
     <Div>
       <Header>
         <Avatar 
-          src="https://randomuser.me/api/portraits/women/71.jpg" 
+          src={`https://randomuser.me/api/portraits/${generateRandomPerson()}/${generateRandomUserAvatar()}.jpg`} 
           alt="some-lady"/>
-        {/*<Username>{user.username}</Username>*/}
+        <Username>{user.username}</Username>
         <EllipsisIcon href="">···</EllipsisIcon>
       </Header>
 
       <ImgWrapper>
-        <Img src="http://media.istockphoto.com/photos/blank-box-picture-id518223207" alt="cube-in-a-box"/>
+        <Img src={post.imageUrl} alt={post.caption}/>
       </ImgWrapper>
 
       <Footer>
