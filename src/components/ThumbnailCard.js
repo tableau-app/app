@@ -44,11 +44,13 @@ const Img = styled.img`
 const HeartIcon = styled(MdFavoriteOutline)`
   font-size: 1.5em;
   margin-left: .2em;
+  cursor: pointer;
 `;
 
 const ChatIcon = styled(TiMessage)`
   font-size: 1.5em;
   margin-left: .2em;
+  cursor: pointer;
 `;
 
 const EllipsisIcon = styled.a`
@@ -58,6 +60,7 @@ const EllipsisIcon = styled.a`
   text-decoration: none;
     :visited: #222;
   padding: 3px;
+  cursor: pointer;
 `;
 
 const Footer = styled.footer`

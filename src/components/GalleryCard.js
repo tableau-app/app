@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
+import { request } from '../api/request';
 
 const Div = styled.div`
   width: 600px;
@@ -44,11 +45,13 @@ const Img = styled.img`
 const HeartIcon = styled(MdFavoriteOutline)`
   font-size: 2em;
   margin-left: .5em;
+  cursor: pointer;
 `;
 
 const ChatIcon = styled(TiMessage)`
   font-size: 2em;
   margin-left: .5em;
+  cursor: pointer;
 `;
 
 const EllipsisIcon = styled.a`
@@ -58,11 +61,18 @@ const EllipsisIcon = styled.a`
   text-decoration: none;
     :visited: #222;
   padding: 5px;
+  cursor: pointer;
 `;
 
 const Footer = styled.footer`
   padding: .5em;
 `;
+
+
+function handleLike(postId, user) {
+  console.log(postId);
+  return request.post(`/posts/${postId}/likes`, user);
+}
 
 function generateRandomUserAvatar() {
   return Math.floor(Math.random() * 99);
@@ -89,7 +99,7 @@ export default function GalleryCard({ user, post }) {
       </ImgWrapper>
 
       <Footer>
-        <HeartIcon /> <ChatIcon />
+        <HeartIcon onClick={(post, user) => handleLike(post._id, user)} /> <ChatIcon />
       </Footer>
     </Div>
   );
