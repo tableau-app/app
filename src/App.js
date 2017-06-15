@@ -11,6 +11,13 @@ import Feed from './components/Feed';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
 import { Login } from './components/Login';
+import styled from 'styled-components';
+
+const Footer = styled.footer`
+  text-align: center;
+  color: lightgrey;
+  margin: 3em 0;
+`;
 
 const Routes = (
   <Switch>
@@ -39,6 +46,9 @@ class App extends Component {
           <main>
             {Routes}
           </main>
+          <Footer>
+            © Tableau 2017
+          </Footer>
         </div>
       </Router>
     );
