@@ -6,7 +6,7 @@ import { request } from '../api/request';
 
 const Div = styled.div`
   width: 600px;
-  margin: 0 auto 2em;
+  margin: 2em auto;
   border: 1px solid #222;
   border-radius: 5px;
   background-color: #eee;
@@ -90,7 +90,7 @@ export default function GalleryCard({ user, post }) {
         <Avatar 
           src={`https://randomuser.me/api/portraits/${generateRandomPerson()}/${generateRandomUserAvatar()}.jpg`} 
           alt="some-lady"/>
-        <Username>{user.username}</Username>
+        {user && <Username>{user.username}</Username>}
         <EllipsisIcon href="">···</EllipsisIcon>
       </Header>
 

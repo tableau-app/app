@@ -7,7 +7,6 @@ function user(state = null, action) {
       return action.payload;
     case actions.LOGOUT:
     case actions.AUTH_FAILED:
-      console.log('in user reducer');
       return null;
     default:
       return state;
