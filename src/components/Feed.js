@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { request } from '../api/request';
 import GalleryCard from './GalleryCard';
 import Nav from './Nav';
+import { Route } from 'react-router-dom';
+import AddPic from './AddPic';
 import { fetchPosts, likePost } from '../actions';
+
 
 class Feed extends Component {
 

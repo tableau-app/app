@@ -5,10 +5,6 @@ import { connect } from 'react-redux';
 import { uploadPost } from '../actions';
 import styled from 'styled-components';
 
-const P = styled.p`
-  font-size: .75em;
-`;
-
 class Upload extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +21,7 @@ class Upload extends Component {
 
     return (
       <div >
-        <P id="status">Add an image</P>
+        <p id="status"></p>
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleSubmit(e.target['file-input'].files[0]);
