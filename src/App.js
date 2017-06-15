@@ -32,9 +32,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Headroom style={{ backgroundColor: 'blue'}}>
+          <Headroom style={{ backgroundColor: 'lightgrey'}}>
             <div className="App-header">
-              <h2>Welcome to Tableau</h2>
+              <h2>Tableau</h2>
             </div>
           </Headroom>
           <main>

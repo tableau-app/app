@@ -13,8 +13,8 @@ function Feed({ user }) {
   return (
     <div>
     <Header/>
-      <h1>Welcome to Tableau</h1>
       { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
+      <GalleryCard user={user}/>
       <ThumbnailCard user={user} />
     </div>
   );
