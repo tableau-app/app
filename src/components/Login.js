@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   width: 48%;
-  margin: 1.5em auto;
+  margin: 4em 1.4em 0 0;
   border: 1px solid #999;
   border-radius: 5px;
   background-color: #eee;
@@ -17,6 +17,7 @@ const ImgDiv = styled.div`
   width: 48%;
   display: inline-block;
   float: left;
+  padding: 4em 0 0 1.5em;
 `;
 
 
