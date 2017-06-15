@@ -1,6 +1,7 @@
 import * as constants from './constants';
 import authApi from './api/authApi';
-import { getStoredToken } from './api/request';
+import { getStoredToken, request } from './api/request';
+
 
 export function checkForToken() {
   return dispatch => {
@@ -52,6 +53,89 @@ export function signup(user) {
   };
 }
 
+export function fetchPosts() {
+  return dispatch => {
+    return request.get('/posts')
+      .then(posts => {
+        dispatch({ type: constants.GET_POSTS, payload: posts });
+      });
+  };
+}
+
+export function likePost(postId) {
+  return dispatch => {
+    request.post(`/posts/${postId}/likes`)
+      .then(({ likes }) => {
+        dispatch({ 
+          type: constants.POST_LIKED, 
+          payload: {
+            postId,
+            likes
+          }
+        });
+      });
+  };
+}
+
 export function signout() {
   return { type: constants.LOGOUT };
+}
+
+export function uploadPost(file) {
+  return dispatch => {
+    getSignedRequest(file)
+      .then(({ file, signedRequest }) => {
+        return uploadFile(file, signedRequest);
+      })
+      .then(() => {
+        const data = {
+          imageUrl: encodeURI(`https://tableau-users-images.s3.amazonaws.com/${file.name}`),
+          caption: '',
+          comments: []
+        };
+        return request.post('/posts', data);
+      })
+      .then(post => {
+        dispatch({ type: constants.POST_UPLOADED, payload: post });
+      },
+      error => {
+        dispatch({ type: constants.POST_FAILED, payload: error });
+      });
+  };
+}
+
+
+function getSignedRequest(file) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          const { signedRequest, url } = JSON.parse(xhr.responseText);
+          resolve({ file, signedRequest, url });
+        } else {
+          reject('Could not get signed URL.');
+        }
+      }
+    };
+    xhr.send();
+  });
+}
+
+function uploadFile(file, signedRequest) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', signedRequest);
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve();
+        } else {
+          reject('Could not upload file.');
+        }
+      }
+    };
+    xhr.send(file);
+  });
 }
