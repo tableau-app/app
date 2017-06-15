@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav user={this.props.user}/>
           <main>
             {Routes}
           </main>
