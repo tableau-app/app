@@ -11,13 +11,13 @@ const H2 = styled.h2`
 `;
 
 const Div = styled.div`
-  background: lightgrey;
+  background: #eee;
   padding: 1em;
   font-size: 1.25em;
   font-weight: bold;
 `;
 
-const Span = styled.span`
+const SignoutWrapper = styled.div`
   float: right;
 `;
 
@@ -30,10 +30,10 @@ function Nav({ user }) {
     <Headroom>
       <Div className="App-header">
         <H2>Tableau</H2>
-        <Span>
+        <SignoutWrapper>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
         <Logout />
-        </Span>
+        </SignoutWrapper>
         <Upload user={user}/>
       </Div>
     </Headroom>
