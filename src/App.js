@@ -5,27 +5,19 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import Headroom from 'react-headroom';
 import './App.css';
 import Feed from './components/Feed';
 import { connect } from 'react-redux';
 import { checkForToken } from './actions';
 import { Login } from './components/Login';
 import styled from 'styled-components';
-import Header from './components/Header';
+import Nav from './components/Nav';
 
 
 const Footer = styled.footer`
   text-align: center;
   color: lightgrey;
   margin: 3em 0;
-`;
-
-const Div = styled.div`
-  background: lightgrey;
-  padding: 1em;
-  font-size: 1.25em;
-  font-weight: bold;
 `;
 
 const Routes = (
@@ -47,12 +39,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Headroom>
-            <Div className="App-header">
-              <h2>Tableau</h2>
-              <Header/>
-            </Div>
-          </Headroom>
+          <Nav />
           <main>
             {Routes}
           </main>

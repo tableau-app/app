@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { request } from '../api/request';
-// import Header from './Header';
 import GalleryCard from './GalleryCard';
 import ThumbnailCard from './ThumbnailCard';
-import Upload from './Upload';
-
-const WelcomeGreeting = ({ name }) => (
-  <p>Welcome {name}! <Link to="/feed"></Link></p>
-);
 
 class Feed extends Component {
   constructor(props) {
@@ -27,16 +21,12 @@ class Feed extends Component {
 
   render() {
     const { user } = this.props;
+    const { posts } = this.state;
     return (
       <div>
-      {/*<Header/>*/}
-        { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
-        {this.state.posts.map(post => (
+        {posts.map(post => (
           <GalleryCard key={post._id} user={user} post={post} />
         ))}
-        {/*<ThumbnailCard user={user} />
-        <GalleryCard user={user} />*/}
-        <Upload user={user} />
       </div>
     );
   }
@@ -45,5 +35,5 @@ class Feed extends Component {
 const mapStateToProps = state => ({ user: state.user });
 
 export default connect(
-  mapStateToProps  
+  mapStateToProps
 )(Feed);
