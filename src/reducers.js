@@ -1,5 +1,5 @@
-import * as actions from './constants';
 import { combineReducers } from 'redux';
+import * as actions from './constants';
 
 function user(state = null, action) {
   switch (action.type) {

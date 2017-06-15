@@ -68,6 +68,10 @@ const Footer = styled.footer`
   padding: .5em;
 `;
 
+function handleLike(postId, user) {
+  return request.post(`/posts/${postId}/likes`, user);
+}
+
 function generateRandomUserAvatar() {
   return Math.floor(Math.random() * 99);
 }
