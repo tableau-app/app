@@ -47,7 +47,7 @@ class Auth extends Component {
 
     return (
       <div>
-        <H1>Tableau</H1>
+        <H1>tableau</H1>
         {this.state.signupForm
           ?
           <div>

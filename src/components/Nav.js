@@ -28,8 +28,8 @@ const WelcomeGreeting = ({ name }) => (
 function Nav({ user }) {
   return (
     <Headroom>
-      <Div className="App-header">
-        <H2>Tableau</H2>
+      <Div>
+        <H2>tableau</H2>
         <SignoutWrapper>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
         <Logout />
