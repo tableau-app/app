@@ -5,37 +5,48 @@ import GalleryCard from './GalleryCard';
 import Nav from './Nav';
 import { Route } from 'react-router-dom';
 import AddPic from './AddPic';
+import { fetchPosts, likePost } from '../actions';
+
 
 class Feed extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      posts: []
-    };
-  }
 
   componentDidMount() {
-    request.get('/posts')
-      .then(posts => this.setState({ posts }));
+    this.props.fetchPosts();
+  }
+
+  handleLike(postId) {
+    this.props.likePost(postId);
   }
 
   render() {
-    const { user } = this.props;
-    const { posts } = this.state;
+    const { user, posts } = this.props;
     return (
       <div>
         <Nav />
         {posts.map(post => (
-          <GalleryCard key={post._id} user={user} post={post} />
+          <GalleryCard key={post._id} 
+          user={user} 
+          post={post} 
+          onLike={() => this.handleLike(post._id)} />
         ))}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ user: state.user });
+const mapStateToProps = state => ({
+  user: state.user,
+  posts: state.posts
+});
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  dispatch => ({
+    fetchPosts() {
+      dispatch(fetchPosts());
+    },
+    likePost(postId) {
+      dispatch(likePost(postId));
+    }
+  })
 )(Feed);
