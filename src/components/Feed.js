@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from './Header';
 import GalleryCard from './GalleryCard';
 import ThumbnailCard from './ThumbnailCard';
+import Upload from './Upload';
 
 const WelcomeGreeting = ({ name }) => (
   <p>Welcome {name}! <Link to="/feed">View your feed</Link></p>
@@ -14,8 +15,9 @@ function Feed({ user }) {
     <div>
     <Header/>
       { user ? <WelcomeGreeting name={user.username}/> : <Redirect to="/"/> }
-      <GalleryCard user={user}/>
       <ThumbnailCard user={user} />
+      <GalleryCard user={user} />
+      <Upload user={user} />
     </div>
   );
 }

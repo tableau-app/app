@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import OAuth from './OAuth';
 import Auth from './Auth';
 import styled from 'styled-components';

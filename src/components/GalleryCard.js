@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
-import FaEllipsisH from 'react-icons/lib/fa/ellipsis-h';
 
 const Div = styled.div`
   width: 600px;
