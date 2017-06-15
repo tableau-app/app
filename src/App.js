@@ -44,7 +44,7 @@ class App extends Component {
             {Routes}
           </main>
           <Footer>
-            © Tableau 2017
+            &copy; Tableau 2017
           </Footer>
         </div>
       </Router>
