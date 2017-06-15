@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signout } from '../actions';
 
-function Header({ user, signout }) {
+function Logout({ user, signout }) {
   return (
     //  user ? <button onClick={signout}>Logout</button> : ''
     //TODO ^
@@ -18,4 +18,4 @@ export default connect(
   dispatch => ({
     signout() { dispatch(signout()); },
   })
-)(Header);
+)(Logout);
