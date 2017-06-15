@@ -5,6 +5,20 @@ import styled from 'styled-components';
 import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
+const Div = styled.div`
+  width: 75%;
+  margin: 0 auto;
+`;
+
+const P = styled.p`
+  margin: .5em 0;
+`;
+
+const Hr = styled.hr`
+  margin: 1.5em auto;
+  border: 1px solid lightgrey;
+`;
+
 const Error = styled.pre`
   color: red;
 `;
@@ -28,15 +42,21 @@ class Auth extends Component {
         {this.state.signupForm
           ?
           <div>
-            <button onClick={() => this.setState({ signupForm: false })}>
-              Sign In</button>
             <Credentials callToAction="Sign up" submit={signup} />
+            <Div>
+              <Hr />
+              <P>Already have an account?</P>
+              <button onClick={() => this.setState({ signupForm: false })}>Sign In</button>
+            </Div>
           </div>
           :
           <div>
-            <p>Not yet registered<button onClick={() => this.setState({ signupForm: true })}>
-            Sign Up</button></p>
             <Credentials callToAction="Sign in" submit={signin} />
+            <Div>
+              <Hr />
+              <P>Not yet registered?</P>
+              <button onClick={() => this.setState({ signupForm: true })}>Sign Up</button>
+            </Div>
           </div>
         }
       </div>
