@@ -15,6 +15,10 @@ const Div = styled.div`
   font-weight: bold;
 `;
 
+const Span = styled.span`
+  float: right;
+`;
+
 const WelcomeGreeting = ({ name }) => (
   <p> {name} <Link to="/feed"></Link></p>
 );
@@ -25,7 +29,7 @@ function Nav({user}) {
     <Headroom>
       <Div className="App-header">
         <h2>Tableau</h2>
-        <Logout />
+        <Span><Logout /></Span>
         {user ? <WelcomeGreeting name={user.username} /> : <Redirect to="/" />}
         <Upload />
       </Div>

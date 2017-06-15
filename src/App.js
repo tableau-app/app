@@ -39,7 +39,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
           <main>
             {Routes}
           </main>

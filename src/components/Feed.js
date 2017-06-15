@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { request } from '../api/request';
 import GalleryCard from './GalleryCard';
 import ThumbnailCard from './ThumbnailCard';
+import Nav from './Nav';
 
 class Feed extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Feed extends Component {
     const { posts } = this.state;
     return (
       <div>
+        <Nav />
         {posts.map(post => (
           <GalleryCard key={post._id} user={user} post={post} />
         ))}
