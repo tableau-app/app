@@ -21,6 +21,7 @@ const Button = styled.button`
   padding-top: 1em;
   padding-bottom: 1em;
   font-size: 1em;
+  border-radius: 10px;
 `;
 
 export default function Credentials({ submit, callToAction }) {

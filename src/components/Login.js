@@ -7,6 +7,7 @@ const AuthDiv = styled.div`
   border: 1px solid #999;
   border-radius: 5px;
   background-color: #eee;
+  padding: 2em 0;
 `;
 
 const ImgDiv = styled.div`
