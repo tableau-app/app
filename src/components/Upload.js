@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { uploadPost } from '../actions';
 
@@ -18,8 +17,10 @@ class Upload extends Component {
   render() {
 
     return (
-      <div >
+      <div id="upload">
         <p id="status"></p>
+        <h2>Upload</h2>
+        <p>Choose a file from your computer or camera</p>
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleSubmit(e.target['file-input'].files[0]);
