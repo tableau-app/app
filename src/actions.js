@@ -97,9 +97,12 @@ export function uploadPost(file) {
       })
       .then(post => {
         dispatch({ type: constants.POST_UPLOADED, payload: post });
+        dispatch({ type: constants.UPLOADED, payload: true });
+        dispatch({ type: constants.UPLOADED, payload: false });
       },
       error => {
         dispatch({ type: constants.POST_FAILED, payload: error });
+        dispatch({ type: constants.UPLOADED, payload: false });
       });
   };
 }

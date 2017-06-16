@@ -38,6 +38,15 @@ function authError(state = null, action) {
   }
 }
 
+function uploaded(state = false, action) {
+  switch (action.type) {
+    case actions.UPLOADED:
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 function posts(state = [], action) {
   switch (action.type) {
     case actions.POST_UPLOADED:
@@ -62,5 +71,6 @@ export default combineReducers({
   user,
   token,
   authError,
-  posts
+  posts,
+  uploaded
 });
