@@ -16,7 +16,7 @@ const ImgDiv = styled.div`
 `;
 
 const Wrapper = styled.div`
-  height: 100%;
+  height: 90vh;
   margin-top: 30px;
   display: flex;
   align-items: center;
