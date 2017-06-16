@@ -1,13 +1,15 @@
 import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signout } from '../actions';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  cursor: pointer;
+`;
 
 function Logout({ user, signout }) {
   return (
-    //  user ? <button onClick={signout}>Logout</button> : ''
-    //TODO ^
-    <button onClick={signout}>Logout</button>
+    <Button onClick={signout}>Logout</Button>
   );
 }
 

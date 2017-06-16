@@ -7,16 +7,13 @@ import Logout from './Logout';
 
 const Title = styled.div`
   font-size: 2em;
-  float: left;
-  margin: .5em 0 1em .5em;
 `;
 
 const Div = styled.div`
   background: #eee;
-  padding: 1em;
+  padding: 10px;
   font-size: 1.25em;
   font-weight: bold;
-  clear: both;
 `;
 
 const SignoutWrapper = styled.div`
@@ -24,7 +21,7 @@ const SignoutWrapper = styled.div`
 `;
 
 const WelcomeGreeting = ({ name }) => (
-  <p> {name} <Link to="/feed"></Link></p>
+  <span> {name} </span>
 );
 
 function Nav({user, posts}) {
@@ -32,12 +29,12 @@ function Nav({user, posts}) {
     <Headroom>
       <Div>
         <Title>
-        <h2>tableau</h2>
+        <h1><Link to="/feed">tableau</Link></h1>
         </Title>
         <SignoutWrapper>
+          <Link to="/AddPic">Upload</Link>
           {user ? <WelcomeGreeting name={user.username} /> :  <Redirect to="/" />}
           <Logout />
-          <Link to="/AddPic">Add an Image</Link>
         </SignoutWrapper>
       </Div>
     </Headroom>
