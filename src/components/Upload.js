@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
+import styled from 'styled-components';
 import { uploadPost } from '../actions';
 
 class Upload extends Component {
@@ -14,10 +16,24 @@ class Upload extends Component {
     this.props.uploadPost(file);
   }
 
+
   render() {
 
+    const ButtonStyle = {
+      width: '175px',
+      height: '50px',
+      display: 'flex',
+      justifyContent: 'center',
+      margin: '1em auto',
+    };
+
+    const UploadText = styled.p`
+      padding: 12px;
+    `;
+
+
     return (
-      <div id="upload">
+      <div className="upload">
         <p id="status"></p>
         <h2>Upload</h2>
         <p>Choose a file from your computer or camera</p>
@@ -27,7 +43,7 @@ class Upload extends Component {
           e.target.reset();
         }}>
           <input type="file" accept="image/*" id="file-input" />
-          <input type="submit" />
+          <RaisedButton type="submit" style={ButtonStyle}><UploadText>Submit</UploadText></RaisedButton>
         </form>
       </div >
     );
@@ -36,7 +52,7 @@ class Upload extends Component {
 
 export default connect(
   null,
-  dispatch => ({ 
+  dispatch => ({
     uploadPost(file) {
       dispatch(uploadPost(file));
     }

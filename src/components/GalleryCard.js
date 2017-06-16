@@ -5,7 +5,7 @@ import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
 
 const Div = styled.div`
-  width: 600px;
+  width: 700px;
   margin: 2em auto;
   border: 1px solid #efefef;
   border-radius: 4px;
@@ -62,7 +62,6 @@ const CommentIcon = styled(TiMessage)`
 const Footer = styled.footer`
   padding: .5em;
 `;
-
 
 export default class GalleryCard extends Component {
   constructor(props) {
