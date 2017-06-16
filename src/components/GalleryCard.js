@@ -7,10 +7,9 @@ import { request } from '../api/request';
 const Div = styled.div`
   width: 600px;
   margin: 2em auto;
-  border: 1px solid #222;
-  border-radius: 5px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
   background-color: #eee;
-  box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 `;
 
 const Header = styled.header`
@@ -54,15 +53,6 @@ const ChatIcon = styled(TiMessage)`
   cursor: pointer;
 `;
 
-const EllipsisIcon = styled.a`
-  font-size: 2em;
-  position: absolute;
-  right: 1em;
-  text-decoration: none;
-    :visited: #222;
-  padding: 5px;
-  cursor: pointer;
-`;
 
 const Footer = styled.footer`
   padding: .5em;
@@ -89,7 +79,6 @@ export default function GalleryCard({ user, post, onLike }) {
           src={`https://randomuser.me/api/portraits/${generateRandomPerson()}/${generateRandomUserAvatar()}.jpg`} 
           alt="some-lady"/>
         {user && <Username>{user.username}</Username>}
-        <EllipsisIcon href="">···</EllipsisIcon>
       </Header>
 
       <ImgWrapper>
