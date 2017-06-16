@@ -8,6 +8,7 @@ const AuthDiv = styled.div`
   border-radius: 5px;
   background-color: #eee;
   padding: 2em 0;
+  margin-right: 5%;
 `;
 
 const ImgDiv = styled.div`
@@ -15,10 +16,11 @@ const ImgDiv = styled.div`
 `;
 
 const Wrapper = styled.div`
+  height: 100%;
   margin-top: 30px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
 `;
 
 
