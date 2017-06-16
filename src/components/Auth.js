@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
@@ -15,17 +15,22 @@ const P = styled.p`
   margin: .5em 0;
 `;
 
-const H1 = styled.h1`
-  width: 75%;
+const Heading = styled.h1`
   margin: 0 auto;
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 3em;
   text-align: center;
+  // font-family: 'Yesteryear', cursive;
+  font-family: 'Petit Formal Script', cursive;
 `;
 
 const Hr = styled.hr`
-  margin: 1.5em auto;
-  border: 1px solid lightgrey;
+  margin: 2em auto;
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
 `;
 
 const Error = styled.pre`
@@ -33,10 +38,7 @@ const Error = styled.pre`
 `;
 
 const ButtonStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  margin: '10% 25%',
-  backgroundColor: 'grey500'//not working?
+  display: 'inline-block'
 };
 
 class Auth extends Component {
@@ -55,15 +57,17 @@ class Auth extends Component {
 
     return (
       <div>
-        <H1>tableau</H1>
+        <Heading>Tableau</Heading>
         {this.state.signupForm
           ?
           <div>
             <Credentials callToAction="Sign up" submit={signup} />
             <Div>
               <Hr />
-              <P>Already have an account?</P>
-              <RaisedButton style={ButtonStyle} onClick={() => this.setState({ signupForm: false })}>Sign In</RaisedButton>
+              <P>Already have an account? 
+                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: false })}>Sign In</FlatButton>
+              </P>
+           
             </Div>
           </div>
           :
@@ -71,8 +75,10 @@ class Auth extends Component {
             <Credentials callToAction="Sign in" submit={signin} />
             <Div>
               <Hr />
-              <P>Not yet registered?</P>
-              <RaisedButton style={ButtonStyle} onClick={() => this.setState({ signupForm: true })}>Sign Up</RaisedButton>
+              <P>Not yet registered?
+                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: true })}>Sign Up</FlatButton>
+              </P>
+              
             </Div>
           </div>
         }
