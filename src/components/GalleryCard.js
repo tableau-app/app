@@ -87,7 +87,7 @@ export default class GalleryCard extends Component {
   }
 
   render() {
-    const { post, onLike } = this.props;
+    const { post, onLike, onComment } = this.props;
     const { commentClicked } = this.state;
     return (
       <Div>
@@ -106,7 +106,7 @@ export default class GalleryCard extends Component {
           <HeartIcon onClick={onLike} post={post}/> 
           {post.likes.length > 0 && <LikeCount>{post.likes.length}</LikeCount>}
           <CommentIcon onClick={() => this.handleComments()}/>
-          {commentClicked && <Comments />}
+          {commentClicked && <Comments onComment={onComment} postId={post._id}/>}
         </Footer>
       </Div>
     );

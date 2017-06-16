@@ -6,4 +6,5 @@ export const POST_UPLOADED = 'POST_UPLOADED';
 export const POST_FAILED = 'POST_FAILED';
 export const GET_POSTS = 'GET_POSTS';
 export const POST_LIKED = 'POST_LIKED';
+export const ADD_COMMENT = 'ADD_COMMENT';
 export const UPLOADED = 'UPLOADED';
