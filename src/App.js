@@ -16,11 +16,7 @@ const Footer = styled.div`
   text-align: center;
   color: lightgrey;
   padding: 1em 0;
-  position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
+  min-height: 1%;
 `;
 
 const Routes = (
