@@ -19,7 +19,6 @@ const Heading = styled.h1`
   margin: 0 auto;
   font-size: 3em;
   text-align: center;
-  // font-family: 'Yesteryear', cursive;
   font-family: 'Petit Formal Script', cursive;
 `;
 

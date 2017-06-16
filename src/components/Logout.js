@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signout } from '../actions';
-import styled from 'styled-components';
+import FlatButton from 'material-ui/FlatButton';
 
-const Button = styled.button`
-  cursor: pointer;
-`;
+const ButtonStyle = {
+  width: '150px',
+  height: '50px',
+  fontFamily: 'Raleway, sans-serif',
+  fontWeight: 'bold'
+};
 
 function Logout({ user, signout }) {
   return (
-    <Button onClick={signout}>Logout</Button>
+    <FlatButton style={ButtonStyle} onClick={signout}>Logout</FlatButton>
   );
 }
 
