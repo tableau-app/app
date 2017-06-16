@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { request } from '../api/request';
 import { connect } from 'react-redux';
 import { uploadPost } from '../actions';
-import styled from 'styled-components';
 
 class Upload extends Component {
   constructor(props) {
