@@ -11,12 +11,13 @@ const Ul = styled.ul`
 
 const Username = styled.span`
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1em;
   margin-right: .5em;
 `;
 
 const Comment = styled.span`
   color: #333;
+  font-size: .75em;
 `;
 
 const Li = styled.li`
