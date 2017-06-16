@@ -32,7 +32,7 @@ function Nav({user, posts}) {
     <Headroom>
       <Div>
         <Title>
-        <h2>tableau</h2>
+        <Link to="/feed">tableau</Link>
         </Title>
         <SignoutWrapper>
           {user ? <WelcomeGreeting name={user.username} /> :  <Redirect to="/" />}

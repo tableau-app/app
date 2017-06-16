@@ -16,4 +16,8 @@ a:visited {
   color: #222;
 }
 
+.headroom-wrapper a {
+  text-decoration: none;
+}
+
 
