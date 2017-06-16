@@ -78,7 +78,7 @@ export default function GalleryCard({ user, post, onLike }) {
         <Avatar 
           src={`https://randomuser.me/api/portraits/${generateRandomPerson()}/${generateRandomUserAvatar()}.jpg`} 
           alt="some-lady"/>
-        {user && <Username>{user.username}</Username>}
+        <Username>{post.user.username}</Username>
       </Header>
 
       <ImgWrapper>
