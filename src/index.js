@@ -6,6 +6,8 @@ import store from './store';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import 'reset-css/reset.css';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 
 ReactDOM.render(

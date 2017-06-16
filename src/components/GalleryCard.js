@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
-import { request } from '../api/request';
 
 const Div = styled.div`
-  width: 600px;
+  width: 700px;
   margin: 2em auto;
   border: 1px solid #efefef;
   border-radius: 4px;
@@ -57,10 +56,6 @@ const ChatIcon = styled(TiMessage)`
 const Footer = styled.footer`
   padding: .5em;
 `;
-
-function handleLike(postId, user) {
-  return request.post(`/posts/${postId}/likes`, user);
-}
 
 function generateRandomUserAvatar() {
   return Math.floor(Math.random() * 99);

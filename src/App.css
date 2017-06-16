@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  height: 92vh;
+  height: 92%;
 }
 
 a:visited {
@@ -29,54 +29,25 @@ a:visited {
   width: 50%;
 }
 
-.headroom h1 a {
-  margin-left: 0;
-}
-
-.headroom a, 
-.headroom span,
-.headroom button {
-  font-family: 'Roboto', sans-serif !important;
-  background: none;
-  font-size: 1em;
-  border: none;
-  margin-left: 1em;
-}
-
-.headroom button {
-  color: grey;
-}
-
-#upload {
+.upload {
   max-width: 400px;
   margin: 2em auto;
+  height: 70vh;
 }
 
-#upload p {
+.upload p {
   margin-bottom: 1em;
   font-size: 1em;
 }
 
-#upload h2 {
+.upload h2 {
   font-size: 2em;
   font-weight: bold;
   margin-bottom: .5em;
 }
 
-#upload input[type=file] {
+.upload input[type=file] {
   display: block;
   font-size: 1em;
 }
-
-#upload input[type=submit] {
-background-color: #fff;
-  display: block;
-  width: 100%;
-  margin: 1em auto;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 1em;
-  border-radius: 10px;
-}
-
 
