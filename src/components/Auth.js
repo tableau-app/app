@@ -34,6 +34,9 @@ const Hr = styled.hr`
 
 const Error = styled.pre`
   color: red;
+  height: 20px;
+  margin: 30px;
+  text-align: center;
 `;
 
 const ButtonStyle = {
@@ -50,7 +53,7 @@ class Auth extends Component {
 
   }
   render() {
-    const { user, signin, signup } = this.props;
+    const { user, signin, signup, error } = this.props;
 
     if (user) return <Redirect to='/feed' />;
 
@@ -63,10 +66,13 @@ class Auth extends Component {
             <Credentials callToAction="Sign up" submit={signup} />
             <Div>
               <Hr />
-              <P>Already have an account? 
+              <Error>
+                {error}
+              </Error>
+              <P>Already have an account?
                 <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: false })}>Sign In</FlatButton>
               </P>
-           
+
             </Div>
           </div>
           :
@@ -74,10 +80,12 @@ class Auth extends Component {
             <Credentials callToAction="Sign in" submit={signin} />
             <Div>
               <Hr />
+              <Error>
+                {error}
+              </Error>
               <P>Not yet registered?
                 <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: true })}>Sign Up</FlatButton>
               </P>
-              
             </Div>
           </div>
         }

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
-import { request } from '../api/request';
 
 const Div = styled.div`
   width: 600px;
@@ -58,10 +57,6 @@ const Footer = styled.footer`
   padding: .5em;
 `;
 
-function handleLike(postId, user) {
-  return request.post(`/posts/${postId}/likes`, user);
-}
-
 function generateRandomUserAvatar() {
   return Math.floor(Math.random() * 99);
 }
@@ -89,7 +84,6 @@ export default function GalleryCard({ user, post, onLike }) {
         <HeartIcon onClick={onLike} /> 
         {post.likes.length && <span>{post.likes.length}</span>}
         <ChatIcon /> 
-        {/*TODO: add handler that opens text input and/or shows comments for post*/}
       </Footer>
     </Div>
   );
