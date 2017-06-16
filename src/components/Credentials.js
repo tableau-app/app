@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const Label = styled.label`
   display: block;
@@ -14,16 +15,22 @@ const Input = styled.input`
   font-size: 1em;
 `;
 
-const Button = styled.button`
-  background-color: #fff;
-  display: block;
-  width: 75%;
-  margin: 1em auto;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 1em;
-  border-radius: 10px;
-`;
+const ButtonStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '10% 30%'
+};
+
+// const ButtonStyle = styled.button`
+//   // background-color: #fff;
+//   // display: block;
+//   // width: 75%;
+//   // margin: 1em auto;
+//   // padding-top: 1em;
+//   // padding-bottom: 1em;
+//   // font-size: 1em;
+//   // border-radius: 10px;
+// `;
 
 export default function Credentials({ submit, callToAction }) {
   return (
@@ -43,7 +50,7 @@ export default function Credentials({ submit, callToAction }) {
         <Input type="text" name="username" />
         <Label>Password</Label>
         <Input type="password" name="password" />
-        <Button type="submit">{callToAction}</Button>
+        <RaisedButton type="submit" style={ButtonStyle}>{callToAction} </RaisedButton>
       </form>
     </div>
   );

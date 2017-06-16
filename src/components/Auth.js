@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import RaisedButton from 'material-ui/RaisedButton';
 import Credentials from './Credentials';
 import { signup, signin } from '../actions';
 
@@ -31,6 +32,13 @@ const Error = styled.pre`
   color: red;
 `;
 
+const ButtonStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  margin: '10% 25%',
+  backgroundColor: 'grey500'//not working?
+};
+
 class Auth extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +63,7 @@ class Auth extends Component {
             <Div>
               <Hr />
               <P>Already have an account?</P>
-              <button onClick={() => this.setState({ signupForm: false })}>Sign In</button>
+              <RaisedButton style={ButtonStyle} onClick={() => this.setState({ signupForm: false })}>Sign In</RaisedButton>
             </Div>
           </div>
           :
@@ -64,7 +72,7 @@ class Auth extends Component {
             <Div>
               <Hr />
               <P>Not yet registered?</P>
-              <button onClick={() => this.setState({ signupForm: true })}>Sign Up</button>
+              <RaisedButton style={ButtonStyle} onClick={() => this.setState({ signupForm: true })}>Sign Up</RaisedButton>
             </Div>
           </div>
         }
