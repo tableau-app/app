@@ -105,6 +105,7 @@ export default class GalleryCard extends Component {
           <HeartIcon onClick={onLike} post={post}/> 
           {post.likes.length > 0 && <LikeCount>{post.likes.length}</LikeCount>}
           <CommentIcon onClick={() => this.handleComments()}/>
+          {post.comments.length > 0 && <LikeCount>{post.comments.length}</LikeCount>}
           {commentClicked && <Comments onComment={onComment} comments={post.comments} postId={post._id}/>}
         </Footer>
       </Div>
