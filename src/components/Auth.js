@@ -23,7 +23,7 @@ const Heading = styled.h1`
 `;
 
 const Hr = styled.hr`
-  margin: 2em auto;
+  margin: 0 auto;
   border: 0; 
   height: 1px; 
   background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
@@ -35,8 +35,8 @@ const Hr = styled.hr`
 const Error = styled.pre`
   color: red;
   height: 20px;
-  margin: 30px;
   text-align: center;
+  margin: 15px auto;
 `;
 
 const ButtonStyle = {
