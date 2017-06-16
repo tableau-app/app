@@ -77,6 +77,21 @@ export function likePost(postId) {
   };
 }
 
+export function addComment(postId, comment) {
+  return dispatch => {
+    request.post(`/posts/${postId}/comments`, { comment })
+      .then((comments) => {
+        dispatch({ 
+          type: constants.ADD_COMMENT, 
+          payload: {
+            postId,
+            comments
+          }
+        });
+      });
+  };
+}
+
 export function signout() {
   return { type: constants.LOGOUT };
 }

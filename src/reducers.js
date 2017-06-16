@@ -62,6 +62,15 @@ function posts(state = [], action) {
         ...state.slice(index + 1)
       ];
     }
+    case actions.ADD_COMMENT: {
+      const { postId, comments } = action.payload;
+      const index = state.findIndex(post => post._id === postId);
+      return [
+        ...state.slice(0, index),
+        { ...state[index], comments },
+        ...state.slice(index + 1)
+      ];
+    }
     default:
       return state;
   }

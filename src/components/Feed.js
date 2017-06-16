@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GalleryCard from './GalleryCard';
 import Nav from './Nav';
-import { fetchPosts, likePost } from '../actions';
+import { fetchPosts, likePost, addComment } from '../actions';
 
 
 class Feed extends Component {
@@ -15,6 +15,10 @@ class Feed extends Component {
     this.props.likePost(postId);
   }
 
+  handleAddComment(postId, comment) {
+    this.props.addComment(postId, comment);
+  }
+
   render() {
     const { user, posts } = this.props;
     return (
@@ -24,7 +28,8 @@ class Feed extends Component {
           <GalleryCard key={post._id} 
           user={user} 
           post={post} 
-          onLike={() => this.handleLike(post._id)} />
+          onLike={() => this.handleLike(post._id)}
+          onComment={(comment) => this.handleAddComment(post._id, comment)} />
         ))}
       </div>
     );
@@ -44,6 +49,9 @@ export default connect(
     },
     likePost(postId) {
       dispatch(likePost(postId));
+    },
+    addComment(postId, comment) {
+      dispatch(addComment(postId, comment));
     }
   })
 )(Feed);

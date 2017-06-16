@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import Comments from './Comments';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 import TiMessage from 'react-icons/lib/ti/message';
 
@@ -44,47 +45,69 @@ const HeartIcon = styled(MdFavoriteOutline)`
   font-size: 2em;
   margin-left: .5em;
   cursor: pointer;
+  color: ${({ post }) => post.likes.length ? 'rgb(233 ,73, 73)' : '#222'};
 `;
 
-const ChatIcon = styled(TiMessage)`
+const LikeCount = styled.span`
+  font-weight: bold;
+  margin-left: 1em;
+`;
+
+const CommentIcon = styled(TiMessage)`
   font-size: 2em;
   margin-left: .5em;
   cursor: pointer;
 `;
 
-
 const Footer = styled.footer`
   padding: .5em;
 `;
 
-function generateRandomUserAvatar() {
-  return Math.floor(Math.random() * 99);
-}
+export default class GalleryCard extends Component {
+  constructor(props) {
+    super(props);
 
-function generateRandomPerson() {
-  let coin = Math.floor(Math.random() * 2);
-  return coin ? 'women' : 'men';
-}
+    this.state = {
+      commentClicked: false
+    };
+  }
 
-export default function GalleryCard({ user, post, onLike }) {
-  return (
-    <Div>
-      <Header>
-        <Avatar 
-          src={`https://randomuser.me/api/portraits/${generateRandomPerson()}/${generateRandomUserAvatar()}.jpg`} 
-          alt="some-lady"/>
-        {user && <Username>{user.username}</Username>}
-      </Header>
+  generateRandomUserAvatar() {
+    return Math.floor(Math.random() * 99);
+  }
 
-      <ImgWrapper>
-        <Img src={post.imageUrl} alt={post.caption}/>
-      </ImgWrapper>
+  generateRandomPerson() {
+    let coin = Math.floor(Math.random() * 2);
+    return coin ? 'women' : 'men';
+  }
 
-      <Footer>
-        <HeartIcon onClick={onLike} /> 
-        {post.likes.length && <span>{post.likes.length}</span>}
-        <ChatIcon /> 
-      </Footer>
-    </Div>
-  );
+  handleComments() {
+    this.setState({ commentClicked: !this.state.commentClicked });
+  }
+
+  render() {
+    const { post, onLike, onComment } = this.props;
+    const { commentClicked } = this.state;
+    return (
+      <Div>
+        <Header>
+          <Avatar 
+            src={`https://randomuser.me/api/portraits/${this.generateRandomPerson()}/${this.generateRandomUserAvatar()}.jpg`} 
+            alt="some-lady"/>
+          <Username>{post.user.username}</Username>
+        </Header>
+
+        <ImgWrapper>
+          <Img src={post.imageUrl} alt={post.caption}/>
+        </ImgWrapper>
+
+        <Footer>
+          <HeartIcon onClick={onLike} post={post}/> 
+          {post.likes.length > 0 && <LikeCount>{post.likes.length}</LikeCount>}
+          <CommentIcon onClick={() => this.handleComments()}/>
+          {commentClicked && <Comments onComment={onComment} comments={post.comments} postId={post._id}/>}
+        </Footer>
+      </Div>
+    );
+  }
 }
