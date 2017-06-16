@@ -15,8 +15,8 @@ class Feed extends Component {
     this.props.likePost(postId);
   }
 
-  handleAddComment(postId) {
-    this.props.addComment(postId);
+  handleAddComment(postId, comment) {
+    this.props.addComment(postId, comment);
   }
 
   render() {
@@ -29,7 +29,7 @@ class Feed extends Component {
           user={user} 
           post={post} 
           onLike={() => this.handleLike(post._id)}
-          onComment={() => this.handleAddComment(post._id)} />
+          onComment={(comment) => this.handleAddComment(post._id, comment)} />
         ))}
       </div>
     );
@@ -50,8 +50,8 @@ export default connect(
     likePost(postId) {
       dispatch(likePost(postId));
     },
-    addComment(postId) {
-      dispatch(addComment(postId));
+    addComment(postId, comment) {
+      dispatch(addComment(postId, comment));
     }
   })
 )(Feed);

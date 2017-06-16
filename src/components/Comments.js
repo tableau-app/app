@@ -6,11 +6,11 @@ const Input = styled.input`
   margin: 1em .5em 0 1.5em;
 `;
 
-export default function Comments({ onComment, postId }) {
+export default function Comments({ onComment }) {
   return (
     <form onSubmit={e => {
       e.preventDefault();
-      onComment(postId, e.target.comment.value);  
+      onComment(e.target.comment.value);
       e.target.reset();
     }}>
       <Input name="comment"/>
