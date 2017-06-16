@@ -89,7 +89,6 @@ export default function GalleryCard({ user, post, onLike }) {
         <HeartIcon onClick={onLike} /> 
         {post.likes.length && <span>{post.likes.length}</span>}
         <ChatIcon /> 
-        {/*TODO: add handler that opens text input and/or shows comments for post*/}
       </Footer>
     </Div>
   );

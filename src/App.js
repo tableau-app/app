@@ -23,7 +23,6 @@ const Routes = (
   <Switch>
     <Route exact path="/feed" render={() => <Feed />} />
     <Route exact path="/" render={() => <Login />} />
-    {/*<Route path="/auth" render={() => <Auth />}/>*/}
     <Route path="/AddPic" render={() => <AddPic />} />
     <Redirect to="/" />
   </Switch>

@@ -74,7 +74,6 @@ export default function ThumbnailCard({ user }) {
         <Avatar 
           src="https://randomuser.me/api/portraits/women/71.jpg" 
           alt="some-lady"/>
-        {/*<Username>{user.username}</Username>*/}
         <EllipsisIcon href="">···</EllipsisIcon>
       </Header>
 
