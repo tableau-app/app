@@ -80,7 +80,7 @@ export function likePost(postId) {
 export function addComment(postId, comment) {
   return dispatch => {
     request.post(`/posts/${postId}/comments`, { comment })
-      .then(({ comments }) => {
+      .then((comments) => {
         dispatch({ 
           type: constants.ADD_COMMENT, 
           payload: {

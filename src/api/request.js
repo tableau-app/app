@@ -23,7 +23,7 @@ const wrap = cmd => cmd
     r => r.body,
     ({ response }) => {
       // TODO: test for token error, dispatch AUTH_FAILED action
-      throw response.body.error;
+      throw response.body ? response.body.error : response.text;
     }
   );
 
