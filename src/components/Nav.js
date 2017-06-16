@@ -39,7 +39,7 @@ function Nav({user, posts}) {
     <Headroom >
       <Div>
         <Title>
-        <h1><Link to="/feed">tableau</Link></h1>
+        <h1><Link to="/feed">Tableau</Link></h1>
         </Title>
         <SignoutWrapper>
           <Link to="/AddPic"><FlatButton style={ButtonStyle}>Upload</FlatButton></Link>
