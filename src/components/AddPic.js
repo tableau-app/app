@@ -5,14 +5,12 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 
-
 function AddPic({ user, uploaded }){
   if (uploaded) {
     return <Redirect to="/feed"/>;
   }
 
   return(
-
     <div>
       <Nav/>
       <Upload user={user} />

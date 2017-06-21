@@ -68,7 +68,7 @@ export default class GalleryCard extends Component {
     super(props);
 
     this.state = {
-      commentClicked: false
+      showComments: false
     };
   }
 
@@ -82,12 +82,12 @@ export default class GalleryCard extends Component {
   }
 
   handleComments() {
-    this.setState({ commentClicked: !this.state.commentClicked });
+    this.setState({ showComments: !this.state.showComments });
   }
 
   render() {
     const { post, onLike, onComment } = this.props;
-    const { commentClicked } = this.state;
+    const { showComments } = this.state;
     return (
       <Div>
         <Header>
@@ -106,7 +106,7 @@ export default class GalleryCard extends Component {
           {post.likes.length > 0 && <LikeCount>{post.likes.length}</LikeCount>}
           <CommentIcon onClick={() => this.handleComments()}/>
           {post.comments.length > 0 && <LikeCount>{post.comments.length}</LikeCount>}
-          {commentClicked && <Comments onComment={onComment} comments={post.comments} postId={post._id}/>}
+          {showComments && <Comments onComment={onComment} comments={post.comments} postId={post._id}/>}
         </Footer>
       </Div>
     );

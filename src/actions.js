@@ -112,6 +112,7 @@ export function uploadPost(file) {
       })
       .then(post => {
         dispatch({ type: constants.POST_UPLOADED, payload: post });
+        // this looks hacky! better to rethink the problem...
         dispatch({ type: constants.UPLOADED, payload: true });
         dispatch({ type: constants.UPLOADED, payload: false });
       },
