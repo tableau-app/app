@@ -60,7 +60,7 @@ class Auth extends Component {
     return (
       <div>
         <Heading>Tableau</Heading>
-        {this.state.signupForm
+        {this.state.signupForm === false
           ?
           <div>
             <Credentials callToAction="Sign up" submit={signup} />

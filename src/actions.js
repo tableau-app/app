@@ -122,7 +122,6 @@ export function uploadPost(file) {
   };
 }
 
-
 function getSignedRequest(file) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
