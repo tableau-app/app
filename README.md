@@ -28,4 +28,8 @@ An Instagram clone built over the course of 4 days using React/Redux and AWS S3.
 ## About the Founders 
 * [Nicky](https://github.com/NeversSync)
 * [Yuval](https://github.com/themarquisdesheric)
+<<<<<<< HEAD
 * [Keeley](https://github.com/VerteDinde)
+=======
+* [Morgan](https://github.com/mofo37)
+>>>>>>> 5a2372312c9509818ec397daaaa2ef4cfb28b619

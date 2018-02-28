@@ -48,7 +48,7 @@ class Auth extends Component {
     super(props);
 
     this.state = {
-      signupForm: true
+      signupForm: false
     };
 
   }
@@ -70,7 +70,7 @@ class Auth extends Component {
                 {error}
               </Error>
               <P>Already have an account?
-                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: false })}>Sign In</FlatButton>
+                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: true })}>Sign In</FlatButton>
               </P>
 
             </Div>
@@ -84,7 +84,7 @@ class Auth extends Component {
                 {error}
               </Error>
               <P>Not yet registered?
-                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: true })}>Sign Up</FlatButton>
+                <FlatButton style={ButtonStyle} primary={true} onClick={() => this.setState({ signupForm: false })}>Sign Up</FlatButton>
               </P>
             </Div>
           </div>

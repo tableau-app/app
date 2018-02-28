@@ -22,11 +22,15 @@ export default function Credentials({ submit, callToAction }) {
       <form onSubmit={e => {
         e.preventDefault();
         const { elements } = e.target;
-        const data = Object.keys(elements).reduce((obj, key) => {
-          obj[key] = elements[key].value;
-          return obj;
-        }, {});
-        
+        const data = { 
+          username: elements[0].value,
+          password: elements[1].value
+        };
+        // const data = Object.keys(elements).reduce((obj, key) => {
+        //   obj[key] = elements[key].value;
+        //   return obj;
+        // }, {});
+        //signup(credentials)
         submit(data);
         e.target.reset();
       }}>

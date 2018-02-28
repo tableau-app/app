@@ -45,7 +45,7 @@ const HeartIcon = styled(MdFavoriteOutline)`
   font-size: 2em;
   margin-left: .5em;
   cursor: pointer;
-  color: ${({ post }) => post.likes.length ? 'rgb(233 ,73, 73)' : '#222'};
+  color: ${({ heart }) => heart.likes.length ? 'rgb(233 ,73, 73)' : '#222'};
 `;
 
 const LikeCount = styled.span`
@@ -102,7 +102,7 @@ export default class GalleryCard extends Component {
         </ImgWrapper>
 
         <Footer>
-          <HeartIcon onClick={onLike} post={post}/> 
+          <HeartIcon onClick={onLike} heart={post}/> 
           {post.likes.length > 0 && <LikeCount>{post.likes.length}</LikeCount>}
           <CommentIcon onClick={() => this.handleComments()}/>
           {post.comments.length > 0 && <LikeCount>{post.comments.length}</LikeCount>}
